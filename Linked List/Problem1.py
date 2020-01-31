@@ -9,3 +9,11 @@
 #          the first head reaches the end.
  
 
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+
+
