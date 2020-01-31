@@ -15,5 +15,23 @@ class Node:
         self.next = None
 
 
+class LinkedList:
+    def __init__(self):
+        self.head = None
 
+    def insertAtTail(self, newNode, headNode):
+        if headNode is None:
+            self.head = newNode
+            return
+        
+        while headNode.next is not None:
+            headNode = headNode.next
+        
+        headNode.next = newNode
+
+    def printList(self, headNode):
+        while headNode is not None:
+            print(headNode.data)
+            headNode = headNode.next
+        
 
