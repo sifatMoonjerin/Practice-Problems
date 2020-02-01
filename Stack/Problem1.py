@@ -1,4 +1,4 @@
-#reversing a linked list
+#Problem 1: Reversing a linked list
 
 stack = []
 
