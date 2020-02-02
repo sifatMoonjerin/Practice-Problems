@@ -21,9 +21,7 @@ class Stack:
 
     def stackPop(self):
         if self.stackEmpty(): return False
-        data = self.top.data
         self.top = self.top.next
-        return data
 
 
     def stackTop(self):
@@ -75,7 +73,7 @@ def isClosePar(par):
 
 
 def highPrec(op1, op2):
-    if operatorWeight[op1] > operatorWeight[op2]:
+    if operatorWeight[op1] >= operatorWeight[op2]:
         return True
     return False
 
@@ -87,7 +85,37 @@ postString = ""
 
 
 for char in inString:
-    if isOpenPar(char) or isOperand(char):
-        print('Yo')
+    if isOperand(char): postString += char
+    if isOpenPar(char): stack.stackPush(char)
+    if isOperator(char):
+        if stack.stackEmpty(): 
+            stack.stackPush(char)
+            continue
+        if isOperator(stack.stackTop()):
+            if highPrec(stack.stackTop(), char):
+                while isOperator(stack.stackTop()): 
+                    postString += stack.stackTop()
+                    stack.stackPop()
         stack.stackPush(char)
+    if isClosePar(char):
+        while stack.stackTop() is not openParentheses[char]:
+            postString += stack.stackTop()
+            stack.stackPop()
+            
+        stack.stackPop()
+
+
+
+while stack.stackTop():
+    postString += stack.stackTop()
+    stack.stackPop()
+
+print(postString)
+        
+        
+
+
+
+
+
 
