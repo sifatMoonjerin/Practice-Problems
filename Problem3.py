@@ -55,6 +55,13 @@ def isOperator(oper):
     return False
 
 
+def isOperand(oper):
+    if oper >= '0' and oper <= '9': return True
+    if oper >= 'a' and oper <= 'z': return True
+    if oper >= 'A' and oper <='Z': return True
+    return False
+
+
 def isOpenPar(par):
     if par == '(' or par == '{' or par == '[':
         return True
@@ -80,4 +87,7 @@ postString = ""
 
 
 for char in inString:
-    if 
+    if isOpenPar(char) or isOperand(char):
+        print('Yo')
+        stack.stackPush(char)
+
