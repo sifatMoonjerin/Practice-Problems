@@ -53,3 +53,10 @@ def isOperator(oper):
     if oper == '+' or oper == '-' or oper == '*' or oper == '/':
         return True
     return False
+
+def highPrec(op1, op2):
+    if operatorWeight[op1] > operatorWeight[op2]:
+        return True
+    return False
+
+
