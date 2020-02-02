@@ -61,6 +61,12 @@ def isOpenPar(par):
     return False
 
 
+def isClosePar(par):
+    if par == ')' or par == '}' or par == ']':
+        return True
+    return False
+
+
 def highPrec(op1, op2):
     if operatorWeight[op1] > operatorWeight[op2]:
         return True
