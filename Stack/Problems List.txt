@@ -1,2 +1,3 @@
 Problem 1: Reversing a linked list
 Problem 2: Balanced parentheses*
+Problem 3: Infix to Postfix
