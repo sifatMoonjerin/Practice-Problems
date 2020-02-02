@@ -54,9 +54,24 @@ def isOperator(oper):
         return True
     return False
 
+
+def isOpenPar(par):
+    if par == '(' or par == '{' or par == '[':
+        return True
+    return False
+
+
 def highPrec(op1, op2):
     if operatorWeight[op1] > operatorWeight[op2]:
         return True
     return False
 
 
+stack = Stack()
+
+inString = input("Enter Your Infix String:\n")
+postString = ""
+
+
+for char in inString:
+    if 
