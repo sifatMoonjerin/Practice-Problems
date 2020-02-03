@@ -36,6 +36,16 @@ class BST:
             return self.findMin(root.left)
 
 
+    def findMax(self, root):
+        if root is None:
+            print("Empty Tree")
+            return
+        elif root.right is None:
+            return root.data
+        else:
+            return self.findMax(root.right)
+
+
 orchid = BST()
 orchid.insertData(15, orchid.root)
 orchid.insertData(10, orchid.root)
@@ -45,6 +55,8 @@ orchid.insertData(8, orchid.root)
 orchid.insertData(12, orchid.root)
 minimum = orchid.findMin(orchid.root)
 print(minimum)
+maximum = orchid.findMax(orchid.root)
+print(maximum)
 
 
 
