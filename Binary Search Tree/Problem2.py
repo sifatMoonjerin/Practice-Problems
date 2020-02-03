@@ -28,6 +28,11 @@ class BST:
                 self.insertData(data, tempRoot.left)
 
 
+    def treeHeight(self, tempRoot):
+        if tempRoot is None: return -1
+        return max(self.treeHeight(tempRoot.left), self.treeHeight(tempRoot.right)) + 1
+
+
 orchid = BST()
 orchid.insertData(15, orchid.root)
 orchid.insertData(10, orchid.root)
@@ -35,9 +40,8 @@ orchid.insertData(20, orchid.root)
 orchid.insertData(25, orchid.root)
 orchid.insertData(8, orchid.root)
 orchid.insertData(12, orchid.root)
-print(orchid.root.data)
-print(orchid.root.left.data)
-print(orchid.root.left.left.data)
-print(orchid.root.left.right.data)
-print(orchid.root.right.data)
-print(orchid.root.right.right.data)
+orchid.insertData(18, orchid.root)
+orchid.insertData(7, orchid.root)
+
+height = orchid.treeHeight(orchid.root)
+print(height)
