@@ -24,6 +24,16 @@ class BST:
             else:
                 tempRoot.left = self.insertData(data, tempRoot.left)
             return tempRoot
+    
+
+    def findMin(self, root):
+        if root is None:
+            print("Empty Tree")
+            return
+        elif root.left is None:
+            return root.data
+        else:
+            return self.findMin(root.left)
 
 
 orchid = BST()
@@ -33,5 +43,8 @@ orchid.insertData(20, orchid.root)
 orchid.insertData(25, orchid.root)
 orchid.insertData(8, orchid.root)
 orchid.insertData(12, orchid.root)
+minimum = orchid.findMin(orchid.root)
+print(minimum)
+
 
 
