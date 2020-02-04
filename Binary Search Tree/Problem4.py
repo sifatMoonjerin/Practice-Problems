@@ -26,8 +26,19 @@ class BST:
             else:
                 self.insertData(data, tempRoot.left)
 
+
+    def findData(self, data, tempRoot):
+        if tempRoot is None: return tempRoot
+        elif data == tempRoot.data: return tempRoot
+        elif data > tempRoot.data:
+            return self.findData(data, tempRoot.right)
+        else:
+            return self.findData(data, tempRoot)
+
     
-    def inSuc(self):
+    def inSuc(self, data, tempRoot):
+        self.findData(data, tempRoot)
+
 
 
 orchid = BST()
