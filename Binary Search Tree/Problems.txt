@@ -1,3 +1,4 @@
 Problem 1: Find min and max element in BST
 Problem 2: Find the height of the tree
 Problem 3: Is BST?
+Problem 4: Inorder Successor
