@@ -33,11 +33,31 @@ class BST:
         elif data > tempRoot.data:
             return self.findData(data, tempRoot.right)
         else:
-            return self.findData(data, tempRoot)
+            return self.findData(data, tempRoot.left)
+
+
+    def findMin(self, tempRoot):
+        while tempRoot.left is not None:
+            tempRoot = tempRoot.left
+        return tempRoot.data
 
     
     def inSuc(self, data, tempRoot):
-        self.findData(data, tempRoot)
+        current = self.findData(data, tempRoot)
+        if current is None: return None
+        elif current.right is not None:
+            return self.findMin(current.right)
+        else:
+            ancestor = tempRoot
+            successor = None
+            while ancestor is not current:
+                if ancestor.data > current.data:
+                    successor = ancestor.data
+                    ancestor = ancestor.left
+                else:
+                    ancestor = ancestor.right
+            return successor
+
 
 
 
@@ -53,3 +73,5 @@ orchid.insertData('K', orchid.root)
 orchid.insertData('G', orchid.root)
 orchid.insertData('C', orchid.root)
 orchid.insertData('I', orchid.root)
+
+print(orchid.inSuc('K', orchid.root))
