@@ -37,3 +37,21 @@ class BST:
                 self.test = False
             self.isBST(tempRoot.right)
         return self.test
+
+
+
+orchid = BST()
+orchid.insertData('F', orchid.root)
+orchid.insertData('D', orchid.root)
+orchid.insertData('J', orchid.root)
+orchid.insertData('B', orchid.root)
+orchid.insertData('A', orchid.root)
+orchid.insertData('E', orchid.root)
+orchid.insertData('K', orchid.root)
+orchid.insertData('G', orchid.root)
+orchid.insertData('C', orchid.root)
+orchid.insertData('I', orchid.root)
+newNode = Node('Z')
+orchid.root.right.left.right.left = newNode
+
+print(orchid.isBST(orchid.root))
